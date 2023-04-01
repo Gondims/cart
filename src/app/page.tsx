@@ -3,6 +3,11 @@ import { useEffect, useState, useCallback, useMemo} from 'react';
 import { addToCart, calculateTotalPrice } from "../utils/utils";
 import Cart from "../components/Cart";
 import ListProducts from "../components/ListProducts";
+import { type } from 'os';
+
+type Props = {
+  product: string
+}
 
 function Home() {
   const [cartItems, setCartItems] = useState([]);
@@ -20,7 +25,7 @@ function Home() {
   }, []);
 
   const handleAddToCart = useCallback(
-    (product) => {
+    (product: any) => {
       setCartItems((prevCartItems) => addToCart(prevCartItems, product));
     },
     [setCartItems]
