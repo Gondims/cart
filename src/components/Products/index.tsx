@@ -56,13 +56,12 @@ export default function Product(props: Props) {
             <div>
               <Button
                 sx={{
-                  background: "#40B25C",
                   width: "100%",
                   height: "40px",
                 }}
                 className="button-add-cart"
-                variant="outlined"
-                color={"success"}
+                variant="contained" 
+                color="success"
                 onClick={() => addToCart(product)}
               >
                 {/* <BsCartPlus size={25}/> */}

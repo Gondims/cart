@@ -87,7 +87,7 @@ body {
 
 .button-add-cart:hover{
   transform: scale(1.0);
-  background: #1E9631;
+  /* background-color: #1E9631; */
 }
 
 .favorite-button-add{
