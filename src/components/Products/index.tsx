@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, Stack, CardMedia, Button } from "@mui/material";
 import { BsCartPlus } from "react-icons/bs";
+import FavoriteButton from "../FavoriteButton";
 
 export default function Product(props) {
   const { product } = props;
@@ -8,9 +9,13 @@ export default function Product(props) {
 
   return (
     <Card
-      sx={{ maxWidth: 304 }}
+      sx={{
+         minWidth: 304,
+
+      }}
     >
       <CardContent>
+          <FavoriteButton />
         <CardMedia
           component="img"
           sx={{ mb: 4 }}
@@ -39,14 +44,18 @@ export default function Product(props) {
             <Button
               sx={{
                 background: "#40B25C",
-                minWidth: '232px',
+                width: '100%',
+                height: '40px'
               }}
               className="button-add-cart"
               variant="outlined"
               color={"success"}
               onClick={() => addToCart(product)}
               >
-              <BsCartPlus size={25}/>
+              {/* <BsCartPlus size={25}/> */}
+              <p className="add-products">
+                Adicionar
+              </p>
             </Button>
           </div>
               </div>
