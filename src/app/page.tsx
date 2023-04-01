@@ -1,38 +1,35 @@
 "use client"
-import { useEffect, useState, useCallback, useMemo} from 'react';
-import { addToCart, calculateTotalPrice } from "../utils/utils";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import { cartFunctions } from "../utils/utils";
 import Cart from "../components/Cart";
 import ListProducts from "../components/ListProducts";
-import { type } from 'os';
-
-type Props = {
-  product: string
-}
+import { type } from "os";
+import { CartItem, Product } from '../utils/interfaces'
 
 function Home() {
-  const [cartItems, setCartItems] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        "/products.json"
-      );
-      const jsonData = await response.json();
+      const response = await fetch("/products.json");
+      const jsonData: Product[] = await response.json();
       setProducts(jsonData);
     }
     fetchData();
   }, []);
 
   const handleAddToCart = useCallback(
-    (product: any) => {
-      setCartItems((prevCartItems) => addToCart(prevCartItems, product));
+    (product: Product) => {
+      setCartItems((prevCartItems) =>
+        cartFunctions.addToCart(prevCartItems, product)
+      );
     },
     [setCartItems]
   );
 
   const handleAddItem = useCallback(
-    (item) => {
+    (item: CartItem) => {
       const updatedCartItems = cartItems.map((cartItem) => {
         if (cartItem.id === item.id) {
           return {
@@ -48,7 +45,7 @@ function Home() {
   );
 
   const handleRemoveItem = useCallback(
-    (item) => {
+    (item: CartItem) => {
       const updatedCartItems = cartItems
         .map((cartItem) => {
           if (cartItem.id === item.id) {
@@ -65,7 +62,10 @@ function Home() {
     [cartItems, setCartItems]
   );
 
-  const totalPrice = useMemo(() => calculateTotalPrice(cartItems), [cartItems]);
+  const totalPrice = useMemo(
+    () => cartFunctions.calculateTotalPrice(cartItems),
+    [cartItems]
+  );
 
   return (
     <div className="App">

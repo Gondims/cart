@@ -1,5 +1,5 @@
 body {
-  font-family: "Inter";
+  font-family: 'Inter';
   background-color: #373743;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 4px;
 }
 
 .row.center {
@@ -29,6 +30,7 @@ body {
   border-radius: 0.5rem;
   object-fit: cover;
   height: 240px;
+  width: 240px;
   transition: transform 0.5s ease;
   margin-bottom: 0.5rem;
 }
@@ -37,19 +39,28 @@ body {
 .price {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  color: #F3151B;
 }
 
 .product-title {
   font-size: 1.2rem;
   font-weight: normal;
-  margin-bottom: 0.5rem;
+  margin-bottom: 24px;
+  font-family: 'Inter';
 }
 
-.product-category {
-  font-size: 0.8rem;
-  font-weight: lighter;
-  margin-bottom: 1rem;
+.installmentPrice{
+  text-decoration: line-through;
+  color: #B5B5B6;
+  font-style: normal;
+  font-weight: 500;
+}
+.installment{
+  color: #B5B5B6;
+  margin-bottom: 34px;
+}
+.installment-sapn{
+  color: #000;
 }
 
 .cart-title {

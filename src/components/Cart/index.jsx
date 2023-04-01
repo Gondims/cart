@@ -58,7 +58,7 @@ function Cart(props) {
                 <span className="cart-product-title">Total Price</span>
               </div>
               <div>
-                <span className="price">${totalPrice}</span>
+                <span className="price">R$ {totalPrice}</span>
               </div>
             </Box>
           </>
