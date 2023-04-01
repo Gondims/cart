@@ -12,7 +12,7 @@ function Cart(props) {
     <div>
       <Card
         sx={{
-          minWidth: 275,
+          minWidth: 304,
           backgroundColor: "#222224",
           color: "#ffffff",
           m: 2,

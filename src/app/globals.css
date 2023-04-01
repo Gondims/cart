@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto";
+  font-family: "Inter";
   background-color: #373743;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
@@ -7,11 +7,15 @@ body {
 
 .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
 
 .col {
+  display: flex;
+}
+
+.row-direction{
   display: flex;
   flex-direction: column;
 }
@@ -23,6 +27,7 @@ body {
 .product-image {
   border-radius: 0.5rem;
   object-fit: cover;
+  height: 240px;
   transition: transform 0.5s ease;
   margin-bottom: 0.5rem;
 }
@@ -39,7 +44,7 @@ body {
 
 .product-title {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 0.5rem;
 }
 

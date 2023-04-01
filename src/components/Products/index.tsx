@@ -7,7 +7,9 @@ export default function Product(props) {
   const { addToCart } = props;
 
   return (
-    <Card>
+    <Card
+      sx={{ maxWidth: 304 }}
+    >
       <CardContent>
         <CardMedia
           component="img"
@@ -31,17 +33,23 @@ export default function Product(props) {
             justifyContent: "space-between",
           }}
         >
+          <div className="row-direction">
           <div className="price">${product.price}.00</div>
           <div>
             <Button
+              sx={{
+                background: "#40B25C",
+                minWidth: '232px',
+              }}
               className="button-add-cart"
               variant="outlined"
               color={"success"}
               onClick={() => addToCart(product)}
-            >
+              >
               <BsCartPlus size={25}/>
             </Button>
           </div>
+              </div>
         </Stack>
       </CardContent>
     </Card>
